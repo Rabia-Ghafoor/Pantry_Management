@@ -1,7 +1,7 @@
 // app/page.js
-import { Box,Stack } from '@mui/material';
+import { Box,Stack, Typography } from '@mui/material';
 
-const items = ['carrots', 'potatoes', 'garlic', 'tomatoes', 'cakes', 'cookies', 'spinach'];
+const items = ['salt', 'potatoes', 'garlic', 'vinegar', 'cakes', 'cookies', 'oil','onions', 'almonds', 'walnuts'];
 
 export default function Home() {
   return (
@@ -9,10 +9,18 @@ export default function Home() {
       width="100vw"
       height="100vh"
       display={'flex'}
-      justifyContent={'center'}
-      alignItems={'center'}
+      justifyContent={'right'}
+      alignItems={'right'}
+      flexDirection={'column'}
     >
-      <Stack width="800px" height="600px" spacing={2}>
+      <Box width="800px" height="70px" bgcolor={'#ADD8E6'}>
+        <Typography variant={'h4'} color={'#333'} textAlign={'center'} >
+          Pantry Items
+
+        </Typography>
+      </Box>
+
+      <Stack width="800px" height="600px" spacing={2} overflow={'auto'}>
         {/* You can use a Stack from MUI here if needed */}
 
        {items.map((i)=> (
@@ -23,9 +31,22 @@ export default function Home() {
         display={'flex'}
         justifyContent={'center'}
         alignItems={'center'}
-        bgcolor={f0f0f0}
+        bgcolor={'f0f0f0'}
         >
-          {i}
+
+          <Typography
+          variant={'h4'}
+          color={'#333'}
+          textAlign={'center'}
+          fontWeight={'normal'}
+          >
+            {
+              // capitalize the first letter of the item
+            i.charAt(0).toUpperCase() + i.slice(1) 
+            }
+          </Typography>
+
+          
         </Box>
        ))}
       </Stack>

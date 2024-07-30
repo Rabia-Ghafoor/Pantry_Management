@@ -1,10 +1,13 @@
 // /app/layout.js
 import React from 'react';
-import { Container, AppBar, Toolbar, Typography, Box } from '@mui/material';
-import './globals.css';
+import {Container, AppBar, Toolbar, Typography, Box} from '@mui/material';
+
 
 const Layout = ({ children }) => {
   return (
+    <html>
+    <body>
+   
     <div>
       <AppBar position="static">
         <Toolbar>
@@ -26,6 +29,8 @@ const Layout = ({ children }) => {
         </Box>
       </footer>
     </div>
+    </body>
+    </html>
   );
 };
 
