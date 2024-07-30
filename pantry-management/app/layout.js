@@ -1,6 +1,8 @@
-// /app/layout.js
+'use client'
 import React from 'react';
 import {Container, AppBar, Toolbar, Typography, Box} from '@mui/material';
+import { FirebaseAppProvider } from 'reactfire';
+
 
 
 const Layout = ({ children }) => {
