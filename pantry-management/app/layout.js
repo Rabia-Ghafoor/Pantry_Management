@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import {Container, AppBar, Toolbar, Typography, Box} from '@mui/material';
+import {Container, AppBar, Toolbar, Typography, Box, } from '@mui/material';
 import { FirebaseAppProvider } from 'reactfire';
 
 
@@ -15,6 +15,15 @@ const Layout = ({ children }) => {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Pantry Management
+            
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Demo
+         
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+    
+            Login
           </Typography>
         </Toolbar>
       </AppBar>
