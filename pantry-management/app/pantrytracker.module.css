@@ -6,12 +6,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .pantryItems {
   margin-top: 20px;
   width: 100%;
   overflow-y: auto;
+  background-color: ghostwhite;
 }
 
 .item {
@@ -20,10 +22,11 @@
   align-items: center;
   margin-top: 10px;
   width: 100%;
+  
 }
 
 .addButton {
-  position: fixed;
+  position: center;
   top: 20px;
   right: 20px;
 }

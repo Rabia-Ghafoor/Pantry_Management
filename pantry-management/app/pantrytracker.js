@@ -1,17 +1,15 @@
-// pantrytracker.js
-'use client';
-
 import { Box, Stack, Typography, Button, Modal, TextField } from '@mui/material';
 import { firestore, auth } from './firebase'; 
 import { collection, getDocs, query, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import styles from './pantrytracker.module.css'; // Correctly import CSS Module
+import styles from './pantrytracker.module.css'; 
 
 export default function Home() {
   const [pantry, setPantry] = useState([]);
   const [itemName, setItemName] = useState('');
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -73,6 +71,10 @@ export default function Home() {
     }
   };
 
+  const filteredPantry = pantry.filter(item => 
+    item.id.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   if (!user) {
     return (
       <Box
@@ -83,6 +85,7 @@ export default function Home() {
         alignItems="center"
         flexDirection="column"
         gap={4}
+        className="container"
       >
         <Typography variant="h4" color="#333" textAlign="center">
           Please Sign In to Manage Pantry Items
@@ -116,7 +119,7 @@ export default function Home() {
           p={4}
           boxShadow={24}
         >
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h1">
             Add Item
           </Typography>
           <Stack width="100%" direction="row" spacing={2} mt={2}>
@@ -142,18 +145,27 @@ export default function Home() {
         </Box>
       </Modal>
 
-      <Button variant="contained" onClick={handleOpen} className={styles.addButton}>
-        Add
-      </Button>
+      <Stack spacing={10} mt={4} alignItems="center">
+        <TextField
+          label="Search Pantry Items"
+          variant="outlined"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className={styles.searchBar}
+        />
+        <Button variant="contained" onClick={handleOpen} className={styles.addButton}>
+          Add
+        </Button>
+      </Stack>
 
-      <Box border="1px solid #333" width="800px" p={2} mt={4}>
-        <Typography variant="h4" color="#333" textAlign="center">
+      <Box border="2px solid #333" width="800px" p={2} mt={4}>
+        <Typography variant="h4" color="#333" textAlign="center" background-color>
           Pantry Items
         </Typography>
       </Box>
 
       <Stack width="800px" spacing={2} className={styles.pantryItems}>
-        {pantry.map((item) => (
+        {filteredPantry.map((item) => (
           <Box
             border="1px solid #333"
             key={item.id}

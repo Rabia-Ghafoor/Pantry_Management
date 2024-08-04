@@ -43,7 +43,7 @@ a {
   align-items: center;
   height: 100vh;
   text-align: center;
-  width: 100%; /* Ensure it takes full width */
+  width: 80%; /* Ensure it takes full width */
 }
 
 .header {
@@ -82,10 +82,4 @@ footer {
   background-color: #f8f9fa;
   position: absolute;
   bottom: 0;
-}
-
-.addButton {
-  position: fixed;
-  top: 20px;
-  right: 20px;
 }
