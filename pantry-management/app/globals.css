@@ -43,6 +43,7 @@ a {
   align-items: center;
   height: 100vh;
   text-align: center;
+  width: 100%; /* Ensure it takes full width */
 }
 
 .header {
@@ -53,10 +54,16 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: space-between; /* Adjust alignment */
 }
 
 .mainContent {
   margin-top: 100px;
+  width: 100%; /* Ensure it takes full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content */
 }
 
 .signInButton {
@@ -75,4 +82,10 @@ footer {
   background-color: #f8f9fa;
   position: absolute;
   bottom: 0;
+}
+
+.addButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }

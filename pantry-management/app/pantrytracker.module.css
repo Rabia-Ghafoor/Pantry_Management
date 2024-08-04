@@ -1,16 +1,29 @@
 
 .page {
-    margin-top: 20px;
-  }
-  
-  .pantryItems {
-    margin-top: 20px;
-  }
-  
-  .item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pantryItems {
+  margin-top: 20px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.addButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}

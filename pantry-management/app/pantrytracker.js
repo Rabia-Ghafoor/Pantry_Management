@@ -5,7 +5,7 @@ import { Box, Stack, Typography, Button, Modal, TextField } from '@mui/material'
 import { firestore, auth } from './firebase'; 
 import { collection, getDocs, query, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import './pantrytracker.module.css';
+import styles from './pantrytracker.module.css'; // Correctly import CSS Module
 
 export default function Home() {
   const [pantry, setPantry] = useState([]);
@@ -96,10 +96,9 @@ export default function Home() {
       width="100vw"
       height="100vh"
       display="flex"
-      justifyContent="left"
-      alignItems="center"
       flexDirection="column"
-      gap={4}
+      alignItems="center"
+      className={styles.page}
     >
       <Modal
         open={open}
@@ -143,7 +142,7 @@ export default function Home() {
         </Box>
       </Modal>
 
-      <Button variant="contained" onClick={handleOpen}>
+      <Button variant="contained" onClick={handleOpen} className={styles.addButton}>
         Add
       </Button>
 
@@ -153,7 +152,7 @@ export default function Home() {
         </Typography>
       </Box>
 
-      <Stack width="800px" spacing={2} overflow="auto" mt={4}>
+      <Stack width="800px" spacing={2} className={styles.pantryItems}>
         {pantry.map((item) => (
           <Box
             border="1px solid #333"
@@ -165,6 +164,7 @@ export default function Home() {
             alignItems="center"
             bgcolor="#f0f0f0"
             p={2}
+            className={styles.item}
           >
             <Typography
               variant="h4"
