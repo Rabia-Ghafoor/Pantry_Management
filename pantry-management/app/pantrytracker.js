@@ -1,3 +1,5 @@
+//app/pantrytracker.js
+
 import { Box, Stack, Typography, Button, Modal, TextField } from '@mui/material';
 import { firestore, auth } from './firebase'; 
 import { collection, getDocs, query, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';

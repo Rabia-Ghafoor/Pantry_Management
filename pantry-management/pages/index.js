@@ -1,10 +1,8 @@
-// app/index.js
-import React, { useState, useEffect } from 'react';
-import HomePage from '../app/pantrytracker'; // Import the homepage component
-import Layout from '../app/layout'; // Ensure you have Layout component wrapping your pages
+import React from 'react';
+import HomePage from '../app/pantrytracker'; // Corrected import path for the homepage component
+import Layout from '../app/navbar'; // Corrected import path for the Layout component
 
-
-export default function Index() {
+const Index = () => {
   return (
     <Layout>
       <HomePage />
@@ -12,3 +10,4 @@ export default function Index() {
   );
 }
 
+export default Index;
