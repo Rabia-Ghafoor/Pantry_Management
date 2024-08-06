@@ -75,11 +75,14 @@ a {
   cursor: pointer;
 }
 
+
+
 footer {
   width: 100%;
   text-align: center;
   padding: 1rem 0;
   background-color: #f8f9fa;
-  position: absolute;
+  position: fixed; /* Use fixed to ensure it stays at the bottom */
   bottom: 0;
+  left: 0; /* Ensure it starts from the left */
 }
